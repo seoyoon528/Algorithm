@@ -1,1 +1,3 @@
-# My Algorithm Studty
+# My Algorithm Studty🧐
+
+Language : JAVA
