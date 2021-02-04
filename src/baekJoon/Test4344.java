@@ -34,7 +34,7 @@ public class Test4344 {
 		}
 		
 		for (int i = 0; i < C; i++) {
-			System.out.printf("%.3f%%\n", result[i]); //'%'를 쓰기 위해선 %% 써야함
+			System.out.printf("%.3f%%\n", result[i]); //'%'를 쓰기 위해선 '%%' 써야함
 		}
 	}
 
