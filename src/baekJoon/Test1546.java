@@ -2,7 +2,7 @@ package baekJoon;
 
 import java.util.Scanner;
 
-public class test1546 {
+public class Test1546 {
 
 	public static void main(String[] args) {
 		int N;
