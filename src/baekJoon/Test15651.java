@@ -30,7 +30,8 @@ public class Test15651 {
 				sb.append(arr[i]).append(' ');
 			}
 			sb.append('\n');
-		} else {
+		} 
+		else {
 			for(int i = 1; i <= n; i++) {
 				arr[level] = i;
 				backtracking(n, m, level+1);
