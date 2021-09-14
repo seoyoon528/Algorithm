@@ -28,7 +28,15 @@ public class Test14888 {
 		if(sum != N-1) {
 			System.out.println("Sum must be N-1");
 		}
+	
+	}
+	
+	public static int operate(int[] arr, int[] op) {
+		int max = Integer.MAX_VALUE;
+		int min = Integer.MIN_VALUE;
 		
+		
+		return max;
 	}
 
 }
