@@ -31,11 +31,11 @@ public class Test14888 {
 	
 	}
 	
+	// 백트래킹 연산자 메소드
 	public static int operate(int[] arr, int[] op) {
 		int max = Integer.MAX_VALUE;
 		int min = Integer.MIN_VALUE;
-		
-		
+	
 		return max;
 	}
 
