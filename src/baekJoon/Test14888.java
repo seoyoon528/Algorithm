@@ -3,6 +3,10 @@ package baekJoon;
 import java.util.Scanner;
 
 public class Test14888 {
+	
+	static int max = Integer.MIN_VALUE;
+	static int min = Integer.MAX_VALUE;
+	static int result = 0;
 
 	public static void main(String[] args) {
 		Scanner  scan = new Scanner(System.in);
@@ -28,14 +32,18 @@ public class Test14888 {
 		if(sum != N-1) {
 			System.out.println("Sum must be N-1");
 		}
+		else {
+			operate(arr, operator);
+		}
+		
 	
 	}
 	
-	// 백트래킹 연산자 메소드
-	public static int operate(int[] arr, int[] op) {
-		int max = Integer.MAX_VALUE;
-		int min = Integer.MIN_VALUE;
-	
+	public static int operate(int[] arr, int[] op) {		
+		if(result > max) {
+			max = result;
+		}
+		
 		return max;
 	}
 
