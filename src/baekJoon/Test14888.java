@@ -3,48 +3,66 @@ package baekJoon;
 import java.util.Scanner;
 
 public class Test14888 {
-	
+	static int N;
 	static int max = Integer.MIN_VALUE;
 	static int min = Integer.MAX_VALUE;
+	static int[] arr;
 	static int result = 0;
 
 	public static void main(String[] args) {
 		Scanner  scan = new Scanner(System.in);
-		int N = scan.nextInt();
-		int sum = 0;
+		N = scan.nextInt();
 		
 		if(N < 2 || N > 11) {
 			System.out.println("It's out of range!");
 		}
 		
-		int[] arr = new int[N];
+		arr = new int[N];
 		int[] operator = new int[4];
 		
 		for(int i = 0; i < N; i++) {
 			arr[i] = scan.nextInt();
 		}
 		
-		for(int i = 0; i < 4; i++) {
-			operator[i] = scan.nextInt();
-			sum += operator[i];
+		for(int j = 0; j < 4; j++) {
+			operator[j] = scan.nextInt();
 		}
 		
-		if(sum != N-1) {
-			System.out.println("Sum must be N-1");
-		}
-		else {
-			operate(arr, operator);
-		}
+		operate(0, 0);
 		
 	
 	}
 	
-	public static int operate(int[] arr, int[] op) {		
-		if(result > max) {
-			max = result;
+	
+	
+	public static void operate(int total, int x) {		
+		if(x == N) {
+			if(total > max) {
+				max = total;
+			}
+			else if(total < min) {
+				min = total;
+			}
+			return;
 		}
 		
-		return max;
+		for(int i = 0; i < 4; i++) {
+			switch(i) {
+			case 0:
+				operate(total + arr[x], x + 1);
+				break;
+			
+			case 1:
+				operate(total - arr[x], x + 1);
+				break;
+			
+			case 2:
+				operate(total * arr[x], x + 1); 
+				break;
+			case 3:
+				operate(total / arr[x], x + 1);
+			}	
+		}
 	}
 
 }
