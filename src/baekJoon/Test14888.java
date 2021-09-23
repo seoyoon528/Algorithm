@@ -7,6 +7,7 @@ public class Test14888 {
 	static int max = Integer.MIN_VALUE;
 	static int min = Integer.MAX_VALUE;
 	static int[] arr;
+	static int[] operator;
 	static int result = 0;
 
 	public static void main(String[] args) {
@@ -47,7 +48,9 @@ public class Test14888 {
 		}
 		
 		for(int i = 0; i < 4; i++) {
-			switch(i) {
+			operator[i]--;
+
+			switch(i) {			
 			case 0:
 				operate(total + arr[x], x + 1);
 				break;
@@ -62,6 +65,7 @@ public class Test14888 {
 			case 3:
 				operate(total / arr[x], x + 1);
 			}	
+			
 		}
 	}
 
