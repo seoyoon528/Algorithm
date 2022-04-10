@@ -1,6 +1,12 @@
 import java.util.Locale;
 import java.util.Scanner;
 
+/* String-08
+  문자열이 입력되면 해당 문자열이 팰린드롬이면 "YES", 아니면 “NO"를 출력하는 프로그램을 작성하세요.
+  단 회문을 검사할 때 알파벳만 가지고 회문을 검사하며, 대소문자를 구분하지 않습니다.
+  알파벳 이외의 문자들의 무시합니다.
+*/
+
 public class IsValidPalindrome {
     public static void solution(String str) {
         int i = 0;
