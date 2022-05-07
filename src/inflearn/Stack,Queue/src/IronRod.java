@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Stack;
 
 /* Stack,Queue-05
  * 여러 개의 쇠막대기를 레이저로 절단하려고 한다. 효율적인 작업을 위해서 쇠막대기를 아래에서 위로 겹쳐 놓고,
@@ -16,13 +17,29 @@ import java.util.Scanner;
  */
 
 public class IronRod {
-    public static void solution(String str) {
+    public static int solution(String str) {
+        int ans = 0;
+        Stack<Character> stack = new Stack<>();
 
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == '(') {
+                stack.push('(');
+            }
+            else {
+                stack.pop();
+                if (str.charAt(i-1) == '(') {       // 레이저
+                    ans += stack.size();
+                }
+                else ans++;
+            }
+        }
+        return ans;
     }
 
     public static void main(String[] args) {
+        IronRod T = new IronRod();
         Scanner in = new Scanner(System.in);
-        String str = in.nextLine();
-        solution(str);
+        String str = in.next();
+        System.out.println(T.solution(str));
     }
 }
