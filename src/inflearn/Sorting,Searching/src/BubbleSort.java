@@ -20,7 +20,7 @@ public class BubbleSort {
     }
 
     public static void main(String[] args) {
-        SelectionSort T = new SelectionSort();
+        BubbleSort T = new BubbleSort();
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
         int[] arr = new int[n];
