@@ -33,6 +33,7 @@ public class Test4963 {
             StringTokenizer st = new StringTokenizer(br.readLine());
             w = Integer.parseInt(st.nextToken());
             h = Integer.parseInt(st.nextToken());
+            count = 0;
 
             if (w == 0 && h == 0) {
                 break;
