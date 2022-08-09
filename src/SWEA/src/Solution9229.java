@@ -9,8 +9,8 @@ import java.util.StringTokenizer;
 
 public class Solution9229 {
 	static int[] snack;
-	static int N, M;
-	static int max;
+	static boolean[] select;
+	static int N, M, max;
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -27,30 +27,59 @@ public class Solution9229 {
 				snack[i] = Integer.parseInt(st.nextToken());
 			}
 						
-			max = -1;
-			selectSnack(0, 0, 0);
+			/* for문 연산 ver */
+//			for (int i = 0; i < N; i++) {
+//				for (int j = i + 1; j < N; j++) {
+//					if (snack[i] + snack[j] <= M) {
+//						max = Math.max(max, snack[i] + snack[j]);
+//					}
+//				}
+//			}
 			
-			if (max == -1) {
-				max = -1;
-			}
+			max = -1;
+			/* 조합 ver */
+			comb(0, 0);
+			comb(0, 0, 0);
 			
 			System.out.println("#"+test_case+" "+max);
 
 		}
 		
 	}
-	public static void selectSnack(int weight, int idx, int cnt) {
+	
+	// 조합 1 - select[] O
+	static void comb(int target, int cnt) {
 		if (cnt == 2) {
-			if (weight <= M) {
-				max = Math.max(max, weight);
+			
+			int sum = 0;
+			for(int i = 0; i < N; i++) {
+				if (select[i]) {
+					sum += snack[i];
+				}
 			}
-			return;
+			
+			if (sum <= M) {
+				max = Math.max(max, sum);	
+			}
 		}
-		if (idx == N) return;
+		if (target == N) return;
 		
+		select[target] = true;
+		comb(target + 1, cnt + 1);
+		select[target] = false;
+		comb(target + 1, cnt);
+	}
+	
+	// 조합 2 - select[] X
+	static void comb(int target, int cnt, int sum) {
+		if (cnt == 2) {
+			if (sum <= M) {
+				max = Math.max(max, sum);	
+			}
+		}
+		if (target == N) return;
 		
-		selectSnack(weight + snack[idx], idx + 1, cnt + 1);
-		selectSnack(weight, idx + 1, cnt);
-	} 
-
+		comb(target + 1, cnt + 1, sum + snack[target]);
+		comb(target + 1, cnt, sum);
+	}
 }
