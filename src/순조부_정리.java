@@ -73,7 +73,7 @@ public class 순조부_정리 {
 		}
 	}
 
-  // for문 버전
+  	// for문 버전
 	static void comb3(int cnt, int start) {
 		if (cnt == 3) {
 			System.out.println(Arrays.toString(visit));
